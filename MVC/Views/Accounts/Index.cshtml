@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MVC.Models.Accounts>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<p>
+    <a href="@Url.Action("Create","Accounts")" class="btn btn-default"> <i class="fa fa-plus"></i> Create New </a>
+</p>
+<table class="table table-striped">
+    <thead class="table table-heading">
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Point)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Account_Type.Name)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Fullname)
+            </th>
+            <th class="text-center">Action</th>
+        </tr>
+    </thead>
+
+@foreach (var item in Model)
+{
+<tr>
+    <td class="text-center">
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+    <td class="text-center">
+        @Html.DisplayFor(modelItem => item.Phone)
+    </td>
+    <td class="text-center">
+        @Html.DisplayFor(modelItem => item.Address)
+    </td>
+    <td class="text-center">
+        @Html.DisplayFor(modelItem => item.Point)
+    </td>
+    <td class="text-center">
+        @Html.DisplayFor(modelItem => item.Account_Type.Name)
+    </td>
+    <td class="text-center">
+        @Html.DisplayFor(modelItem => item.Fullname)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+    </td>
+</tr>
+}
+
+</table>
